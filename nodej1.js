@@ -1,5 +1,6 @@
 const http = require('http')
 const fs = require('fs')
+//安装cheerio 和 request依赖 -s生产环境
 const cheerio = require('cheerio') // 类似jquery
 const request= require('request')
 let i = 0
