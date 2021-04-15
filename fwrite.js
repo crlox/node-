@@ -20,9 +20,12 @@ function wFile(fpath,content){
     }) 
 }
 //创建异步函数 使用await异步调用函数 按照 1 2 3顺序写入
-async function writeF(){
-    await wFile("1.txt","+1")
-    await wFile("1.txt","+2")
-    await wFile("1.txt","+3")
-}
-writeF()
+// async function writeF(){
+//     await wFile("1.txt","+1")
+//     await wFile("1.txt","+2")
+//     await wFile("1.txt","+3")
+// }
+// writeF()
+
+//导出写入文件模块 导出用花括号 导入也需要花括号
+module.exports = {wFile}

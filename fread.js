@@ -13,7 +13,7 @@ const fs = require('fs')
 // })
 //使用promise对象来异步读取文件内容
 function rFile(fPath){
-    var readPromise = new Promise(function(resolve,reject){
+    var readPromise = new Promise((resolve,reject) => {
         fs.readFile(fPath,"utf-8",(err,data) => {
             //读取失败时 调用reject
             if(err) return reject (err);
@@ -22,8 +22,8 @@ function rFile(fPath){
             resolve (data);//返回数据信息到readPromise对象
     
         })
-    })
-    //返回对应promise对象
+    }).catch(() =>{})
+    //返回对应promise对象 返回结果
     return readPromise
 }
 
@@ -39,10 +39,20 @@ function rFile(fPath){
 //     })
 
 //使用async 和 await 非链式调用 promise 读取文件内容
-async function rdfile(){
-    var file1 = await rFile("1.txt");
-    console.log(file1);
-    var file1 = await rFile("2.txt");
-    console.log(file1);
+// async function rdfile(){
+//     var file1 = await rFile("1.txt");
+//     console.log(file1);
+//     var file1 = await rFile("2.txt");
+//     console.log(file1);
+// }
+// rdfile()
+function test(){
+
+    console.log("调用成功");
+
 }
-rdfile()
+var a =1;
+var b =2;
+//导出读取文件模块
+module.exports = rFile
+//module.exports = {a,b}
